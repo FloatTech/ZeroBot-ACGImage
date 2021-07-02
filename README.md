@@ -8,7 +8,7 @@ import _ "github.com/FloatTech/ZeroBot-ACGImage
 ```
 > 本插件检测如下口令
 ### 随机图片
-从随机图片API随机一张二次元图片，并回复其评价。
+从随机图片API随机一张二次元图片，并回复其评价。默认从`loliconapi`随机。
 
 ### 直接随机
 直接随机（无r18检测，后果自负）
