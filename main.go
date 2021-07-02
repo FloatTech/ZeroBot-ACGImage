@@ -48,7 +48,7 @@ func init() { // 插件主体
 					ctx.Send("请稍后再试哦")
 				} else if RANDOM_API_URL != "" {
 					BLOCK_REQUEST = true
-					last_message_id := ctx.Send(message.Image(RANDOM_API_URL).Add("no_cache", "1"))
+					last_message_id := ctx.Send(message.Image(RANDOM_API_URL))
 					last_group_id := ctx.Event.GroupID
 					MsgofGrp[last_group_id] = last_message_id
 					BLOCK_REQUEST = false
