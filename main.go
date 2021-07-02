@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	RANDOM_API_URL = "https://api.pixivweb.com/anime18r.php?return=img"
+	RANDOM_API_URL = ""
 	BLOCK_REQUEST  = false
 )
 
@@ -27,8 +27,16 @@ func init() { // 插件主体
 	// 有保护的随机图片
 	zero.OnFullMatch("随机图片").SetBlock(true).SetPriority(24).
 		Handle(func(ctx *zero.Ctx) {
-			if ctx.Event.GroupID > 0 {
-				Classify(ctx, RANDOM_API_URL, false)
+			if BLOCK_REQUEST {
+				ctx.Send("请稍后再试哦")
+			} else if ctx.Event.GroupID > 0 {
+				BLOCK_REQUEST = true
+				if RANDOM_API_URL == "" {
+					Classify(ctx, "&loli=true", false)
+				} else {
+					Classify(ctx, RANDOM_API_URL, false)
+				}
+				BLOCK_REQUEST = false
 			}
 			return
 		})
@@ -38,7 +46,7 @@ func init() { // 插件主体
 			if ctx.Event.GroupID > 0 {
 				if BLOCK_REQUEST {
 					ctx.Send("请稍后再试哦")
-				} else {
+				} else if RANDOM_API_URL != "" {
 					BLOCK_REQUEST = true
 					last_message_id := ctx.Send(message.Image(RANDOM_API_URL).Add("no_cache", "1"))
 					last_group_id := ctx.Event.GroupID

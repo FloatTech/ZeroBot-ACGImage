@@ -23,7 +23,10 @@ var (
 )
 
 func Classify(ctx *zero.Ctx, targeturl string, noimg bool) {
-	get_url := CLASSIFY_HEAD + url.QueryEscape(targeturl)
+	if targeturl[0] != '&' {
+		targeturl = url.QueryEscape(targeturl)
+	}
+	get_url := CLASSIFY_HEAD + targeturl
 	if noimg {
 		get_url += "&noimg=true"
 	}
@@ -96,11 +99,11 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 		}
 		switch class {
 		case 0:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[0]一堆像素点"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[0]一堆像素"))
 		case 1:
 			ctx.SendChain(message.Reply(last_message_id), message.Text("[1]普通"))
 		case 2:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[2]有点意思"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[2]还行"))
 		case 3:
 			ctx.SendChain(message.Reply(last_message_id), message.Text("[3]不错"))
 		case 4:
