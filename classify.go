@@ -18,7 +18,7 @@ var (
 	CACHE_IMG_FILE = "/tmp/setugt"
 	CACHE_URI      = "file:///" + CACHE_IMG_FILE
 	VOTE_API_URL   = "http://saki.fumiama.top/vote?uuid=零号&img=%s&class=%d"
-	CLASSIFY_HEAD  = "http://saki.fumiama.top:62002/dice?url="
+	CLASSIFY_HEAD  = "http://saki.fumiama.top:62002/dice?class=9&url="
 	MsgofGrp       = make(map[int64]int64)
 	dhashofmsg     = make(map[int64]string)
 )
@@ -75,12 +75,14 @@ func Vote(ctx *zero.Ctx, class int) {
 }
 
 func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
-	if class > 4 {
+	if class > 5 {
 		switch class {
-		case 5:
-			ctx.Send("[5]影响不好啦！")
 		case 6:
-			ctx.Send("[6]太涩啦，🐛了！")
+			ctx.Send("[6]影响不好啦!")
+		case 7:
+			ctx.Send("[7]太涩啦，🐛了!")
+		case 8:
+			ctx.Send("[8]🐛不动啦放过我吧~")
 		}
 		if dhash != "" && !noimg {
 			b14, err3 := url.QueryUnescape(dhash)
@@ -100,15 +102,17 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 		}
 		switch class {
 		case 0:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[0]一堆像素"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[0]这啥啊"))
 		case 1:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[1]普通"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[1]普通欸"))
 		case 2:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[2]还行"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[2]有点可爱"))
 		case 3:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[3]不错"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[3]不错哦"))
 		case 4:
-			ctx.SendChain(message.Reply(last_message_id), message.Text("[4]我好啦！"))
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[4]很棒"))
+		case 5:
+			ctx.SendChain(message.Reply(last_message_id), message.Text("[5]我好啦!"))
 		}
 	}
 }

@@ -32,7 +32,7 @@ func init() { // 插件主体
 			} else if ctx.Event.GroupID > 0 {
 				BLOCK_REQUEST = true
 				if RANDOM_API_URL == "" {
-					Classify(ctx, "&loli=true", false)
+					Classify(ctx, "&loli=true&r18=true", false)
 				} else {
 					Classify(ctx, RANDOM_API_URL, false)
 				}
