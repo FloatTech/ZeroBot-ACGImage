@@ -82,7 +82,7 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 		case 7:
 			ctx.Send("[7]太涩啦，🐛了!")
 		case 8:
-			ctx.Send("[8]🐛不动啦放过我吧~")
+			ctx.Send("[8]🐛不动啦...放过我吧~")
 		}
 		if dhash != "" && !noimg {
 			b14, err3 := url.QueryUnescape(dhash)
