@@ -23,7 +23,7 @@ var (
 )
 
 func init() {
-	err := os.MkdirAll(DATAPATH, 0644)
+	err := os.MkdirAll(DATAPATH, 0755)
 	if err != nil {
 		panic(err)
 	}
