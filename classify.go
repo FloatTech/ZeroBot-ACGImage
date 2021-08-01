@@ -19,8 +19,6 @@ var (
 	CACHE_URI      = "file:///" + CACHE_IMG_FILE
 	VOTE_API_URL   = "http://saki.fumiama.top/vote?uuid=零号&img=%s&class=%d"
 	CLASSIFY_HEAD  = "http://saki.fumiama.top:62002/dice?class=9&url="
-	MsgofGrp       = make(map[int64]int64)
-	dhashofmsg     = make(map[int64]string)
 )
 
 func Classify(ctx *zero.Ctx, targeturl string, noimg bool) {
@@ -61,19 +59,6 @@ func Classify(ctx *zero.Ctx, targeturl string, noimg bool) {
 	}
 }
 
-func Vote(ctx *zero.Ctx, class int) {
-	msg, ok := MsgofGrp[ctx.Event.GroupID]
-	if ok {
-		ctx.DeleteMessage(msg)
-		delete(MsgofGrp, ctx.Event.GroupID)
-		dhash, ok2 := dhashofmsg[msg]
-		if ok2 {
-			http.Get(fmt.Sprintf(VOTE_API_URL, dhash, class))
-			delete(dhashofmsg, msg)
-		}
-	}
-}
-
 func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 	if class > 5 {
 		switch class {
@@ -82,7 +67,7 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 		case 7:
 			ctx.Send("[7]太涩啦，🐛了!")
 		case 8:
-			ctx.Send("[8]🐛不动啦...放过我吧~")
+			ctx.Send("[8]已经🐛不动啦...")
 		}
 		if dhash != "" && !noimg {
 			b14, err3 := url.QueryUnescape(dhash)
@@ -94,9 +79,6 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 		var last_message_id int64
 		if !noimg {
 			last_message_id = ctx.SendChain(message.Image(CACHE_URI))
-			last_group_id := ctx.Event.GroupID
-			MsgofGrp[last_group_id] = last_message_id
-			dhashofmsg[last_message_id] = dhash
 		} else {
 			last_message_id = ctx.Event.MessageID
 		}
