@@ -34,7 +34,7 @@ func init() { // 插件主体
 			}
 		})
 	// 直接随机图片，无r18保护，后果自负。如果出r18图可尽快通过发送"太涩了"撤回
-	zero.OnFullMatch("直接随机").SetBlock(true).SetPriority(24).
+	zero.OnFullMatch("直接随机", zero.AdminPermission).SetBlock(true).SetPriority(24).
 		Handle(func(ctx *zero.Ctx) {
 			if ctx.Event.GroupID > 0 {
 				if BLOCK_REQUEST {
