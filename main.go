@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	//r18有一定保护，不会发出图片
+	//r18有一定保护，一般不会发出图片
 	RANDOM_API_URL = "&loli=true&r18=true"
 	BLOCK_REQUEST  = false
 	msgof          = make(map[int64]int64)
