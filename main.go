@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	LOLI_PROXY_URL = "http://saki.fumiama.top:62002/dice?class=0&loli=true&r18=true"
 	//r18有一定保护，一般不会发出图片
 	RANDOM_API_URL = "&loli=true&r18=true"
 	BLOCK_REQUEST  = false
@@ -28,9 +29,7 @@ func init() { // 插件主体
 	zero.OnFullMatch("随机图片").SetBlock(true).SetPriority(24).
 		Handle(func(ctx *zero.Ctx) {
 			if ctx.Event.GroupID > 0 {
-				if RANDOM_API_URL == "" {
-					go Classify(ctx, RANDOM_API_URL, false)
-				}
+				go Classify(ctx, RANDOM_API_URL, false)
 			}
 		})
 	// 直接随机图片，无r18保护，后果自负。如果出r18图可尽快通过发送"太涩了"撤回
@@ -41,7 +40,13 @@ func init() { // 插件主体
 					ctx.Send("请稍后再试哦")
 				} else if RANDOM_API_URL != "" {
 					BLOCK_REQUEST = true
-					setLastMsg(ctx.Event.GroupID, ctx.Send(message.Image(RANDOM_API_URL)))
+					var url string
+					if RANDOM_API_URL[0] == '&' {
+						url = LOLI_PROXY_URL
+					} else {
+						url = RANDOM_API_URL
+					}
+					setLastMsg(ctx.Event.GroupID, ctx.Send(message.Image(url).Add("cache", "0")))
 					BLOCK_REQUEST = false
 				}
 			}
