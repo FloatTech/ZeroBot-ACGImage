@@ -31,8 +31,8 @@ func init() { // 插件主体
 		Handle(func(ctx *zero.Ctx) {
 			if ctx.Event.GroupID > 0 {
 				if time.Now().Unix()-lastvisit > 5 {
-					go Classify(ctx, RANDOM_API_URL, false)
 					lastvisit = time.Now().Unix()
+					go Classify(ctx, RANDOM_API_URL, false)
 				} else {
 					ctx.Send("你太快啦!")
 				}

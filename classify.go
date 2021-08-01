@@ -23,6 +23,7 @@ var (
 )
 
 func init() {
+	os.RemoveAll(DATAPATH) //清除缓存
 	err := os.MkdirAll(DATAPATH, 0755)
 	if err != nil {
 		panic(err)
@@ -59,7 +60,7 @@ func Classify(ctx *zero.Ctx, targeturl string, noimg bool) {
 			defer resp.Body.Close()
 			// 写入文件
 			data, _ := ioutil.ReadAll(resp.Body)
-			f, _ := os.OpenFile(CACHE_IMG_FILE, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0644)
+			f, _ := os.OpenFile(CACHE_IMG_FILE+strconv.FormatInt(lastvisit, 10), os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0644)
 			defer f.Close()
 			f.Write(data)
 			replyClass(ctx, dhash, class, noimg)
@@ -86,7 +87,7 @@ func replyClass(ctx *zero.Ctx, dhash string, class int, noimg bool) {
 	} else {
 		var last_message_id int64
 		if !noimg {
-			last_message_id = ctx.SendChain(message.Image(CACHE_URI))
+			last_message_id = ctx.SendChain(message.Image(CACHE_URI + strconv.FormatInt(lastvisit, 10)))
 		} else {
 			last_message_id = ctx.Event.MessageID
 		}
