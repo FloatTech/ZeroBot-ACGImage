@@ -15,11 +15,19 @@ import (
 )
 
 var (
-	CACHE_IMG_FILE = "/tmp/setugt"
+	BOTPATH, _     = os.Getwd() // 当前bot运行目录
+	DATAPATH       = BOTPATH + "/data/acgimage/"
+	CACHE_IMG_FILE = DATAPATH + "cache"
 	CACHE_URI      = "file:///" + CACHE_IMG_FILE
-	VOTE_API_URL   = "http://saki.fumiama.top/vote?uuid=零号&img=%s&class=%d"
 	CLASSIFY_HEAD  = "http://saki.fumiama.top:62002/dice?class=9&url="
 )
+
+func init() {
+	err := os.MkdirAll(DATAPATH, 0644)
+	if err != nil {
+		panic(err)
+	}
+}
 
 func Classify(ctx *zero.Ctx, targeturl string, noimg bool) {
 	if targeturl[0] != '&' {
