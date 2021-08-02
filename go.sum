@@ -1,3 +1,7 @@
+github.com/FloatTech/Zerobot-ACGImage-Classify v0.0.0-20210802162245-b43a4c92cb8b h1:j0T/Gywm+kW9aEEUGSGvqrKjv2jeRrqmnnbWH6puab0=
+github.com/FloatTech/Zerobot-ACGImage-Classify v0.0.0-20210802162245-b43a4c92cb8b/go.mod h1:swPvVKyXu1YFWZ7Kt6R79LgIa16hs4cE1E5LroBB2SQ=
+github.com/FloatTech/Zerobot-ACGImage-Classify v1.2.1 h1:HEdT6yq06lV94jcArutpyqQLaPpczs0bTd6gdwVG1ps=
+github.com/FloatTech/Zerobot-ACGImage-Classify v1.2.1/go.mod h1:swPvVKyXu1YFWZ7Kt6R79LgIa16hs4cE1E5LroBB2SQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -33,12 +37,16 @@ github.com/syndtr/goleveldb v1.0.0/go.mod h1:ZVVdQEZoIme9iO1Ch2Jdy24qqXrMMOU6lpP
 github.com/t-tomalak/logrus-easy-formatter v0.0.0-20190827215021-c074f06c5816/go.mod h1:tzym/CEb5jnFI+Q0k4Qq3+LvRF4gO3E2pxS8fHP8jcA=
 github.com/tidwall/gjson v1.8.0 h1:Qt+orfosKn0rbNTZqHYDqBrmm3UDA4KRkv70fDzG+PQ=
 github.com/tidwall/gjson v1.8.0/go.mod h1:5/xDoumyyDNerp2U36lyolv46b3uF/9Bu6OfyQ9GImk=
+github.com/tidwall/gjson v1.8.1 h1:8j5EE9Hrh3l9Od1OIEDAb7IpezNA20UdRngNAj5N0WU=
+github.com/tidwall/gjson v1.8.1/go.mod h1:5/xDoumyyDNerp2U36lyolv46b3uF/9Bu6OfyQ9GImk=
 github.com/tidwall/match v1.0.3 h1:FQUVvBImDutD8wJLN6c5eMzWtjgONK9MwIBCOrUJKeE=
 github.com/tidwall/match v1.0.3/go.mod h1:eRSPERbgtNPcGhD8UCthc6PmLEQXEWd3PRB5JTxsfmM=
 github.com/tidwall/pretty v1.1.0 h1:K3hMW5epkdAVwibsQEfR/7Zj0Qgt4DxtNumTq/VloO8=
 github.com/tidwall/pretty v1.1.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
 github.com/wdvxdr1123/ZeroBot v1.2.1 h1:ougeP+VOAGlQWCAUSB7fjA5trzEvPepU7pujsoYTCq8=
 github.com/wdvxdr1123/ZeroBot v1.2.1/go.mod h1:83nHtG8V5TAxPwH/LCDxLpZk4khIgs29dkr5TBWf7fc=
+github.com/wdvxdr1123/ZeroBot v1.2.2 h1:BKEy3l80BMrQWpFWaII0AfFMyf9bqrB0TxfWhTdoV58=
+github.com/wdvxdr1123/ZeroBot v1.2.2/go.mod h1:83nHtG8V5TAxPwH/LCDxLpZk4khIgs29dkr5TBWf7fc=
 golang.org/x/net v0.0.0-20180906233101-161cd47e91fd/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=

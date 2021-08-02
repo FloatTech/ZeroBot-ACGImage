@@ -2,18 +2,17 @@ package ACGImage
 
 import (
 	"strings"
-	"time"
 
+	classify "github.com/FloatTech/Zerobot-ACGImage-Classify"
 	zero "github.com/wdvxdr1123/ZeroBot"
 	"github.com/wdvxdr1123/ZeroBot/message"
 )
 
 var (
-	LOLI_PROXY_URL = "http://saki.fumiama.top:62002/dice?class=0&loli=true&r18=true"
+	LOLI_PROXY_URL = "http://sayuri.fumiama.top:62002/dice?class=0&loli=true&r18=true"
 	//r18有一定保护，一般不会发出图片
 	RANDOM_API_URL = "&loli=true&r18=true"
 	msgof          = make(map[int64]int64)
-	lastvisit      = time.Now().Unix()
 )
 
 func init() { // 插件主体
@@ -30,9 +29,8 @@ func init() { // 插件主体
 	zero.OnFullMatch("随机图片").SetBlock(true).SetPriority(24).
 		Handle(func(ctx *zero.Ctx) {
 			if ctx.Event.GroupID > 0 {
-				if time.Now().Unix()-lastvisit > 5 {
-					lastvisit = time.Now().Unix()
-					go Classify(ctx, RANDOM_API_URL, false)
+				if classify.CanVisit(5) {
+					go classify.Classify(ctx, RANDOM_API_URL, false)
 				} else {
 					ctx.Send("你太快啦!")
 				}
@@ -42,7 +40,7 @@ func init() { // 插件主体
 	zero.OnFullMatch("直接随机", zero.AdminPermission).SetBlock(true).SetPriority(24).
 		Handle(func(ctx *zero.Ctx) {
 			if ctx.Event.GroupID > 0 {
-				if time.Now().Unix()-lastvisit > 5 {
+				if classify.CanVisit(5) {
 					ctx.Send("请稍后再试哦")
 				} else if RANDOM_API_URL != "" {
 					var url string
@@ -52,7 +50,6 @@ func init() { // 插件主体
 						url = RANDOM_API_URL
 					}
 					setLastMsg(ctx.Event.GroupID, ctx.Send(message.Image(url).Add("cache", "0")))
-					lastvisit = time.Now().Unix()
 				}
 			}
 		})
@@ -68,7 +65,7 @@ func init() { // 插件主体
 				ctx.Send("少女祈祷中...")
 				for _, pic := range ctx.State["image_url"].([]string) {
 					//fmt.Println(pic)
-					go Classify(ctx, pic, true)
+					go classify.Classify(ctx, pic, true)
 				}
 			}
 		})
