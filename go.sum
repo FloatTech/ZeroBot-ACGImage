@@ -8,6 +8,8 @@ github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.1 h1:T8cSLwoVppbMRPKnwFgItl8
 github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.1/go.mod h1:swPvVKyXu1YFWZ7Kt6R79LgIa16hs4cE1E5LroBB2SQ=
 github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.2 h1:7s06Cw2TggudMEz3t+OSAiSv/JAetNdNYgfmuLZhGwU=
 github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.2/go.mod h1:swPvVKyXu1YFWZ7Kt6R79LgIa16hs4cE1E5LroBB2SQ=
+github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.3 h1:mMaBe23yg8mk5U0yb9OS9iX/9hju6Dj+Z+Fty18vIhU=
+github.com/FloatTech/Zerobot-ACGImage-Classify v1.3.3/go.mod h1:swPvVKyXu1YFWZ7Kt6R79LgIa16hs4cE1E5LroBB2SQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
