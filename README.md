@@ -16,7 +16,7 @@ import _ "github.com/FloatTech/ZeroBot-ACGImage
 设置随机图片/直接随机调用的API网址。
 
 ### 随机图片
-从随机图片API随机一张二次元图片，并回复其评价。默认从`loliconapi`随机且开启r18模式，但是r18图片不会发出而是以提示给出。若想获取图片，可访问saki.fumiama.top/img?path=提示的汉字。
+从随机图片API随机一张二次元图片，并回复其评价。默认从`loliconapi`随机且开启r18模式，但是r18图片不会发出而是以提示给出。若想获取图片，可访问sayuri.fumiama.top:8080/img?path=提示的汉字。
 
 本口令有5秒CD。
 
