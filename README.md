@@ -1,5 +1,6 @@
-# ZeroBot-ACGImage
-基于[Zerobot-ACGImage-Classify](https://github.com/FloatTech/Zerobot-ACGImage-Classify)编写的二次元图片随机、鉴别插件。
+> 本插件已合并入[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)，本仓库不再迭代/维护
+# ~~ZeroBot-ACGImage~~
+~~基于[Zerobot-ACGImage-Classify](https://github.com/FloatTech/Zerobot-ACGImage-Classify)编写的二次元图片随机、鉴别插件。~~
 
 # 使用说明
 
